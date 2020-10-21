@@ -9,7 +9,7 @@ Small test project to test an aws lambda implementation with serverless utilisin
 Use the included `docker-compose.yml` and run the following:
 
 ```
-docker-compose up -d
+docker-compose pull && docker-compose up -d
 ```
 
 ## Natively
@@ -28,7 +28,7 @@ As expected there may be updates, each process is different
 ## Docker
 
 ```
-docker-compose build && docker-compose pull && docker-compose up -d
+docker-compose pull && docker-compose up -d
 ```
 
 ## Natively
