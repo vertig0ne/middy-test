@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag docker push docker.pkg.github.com/vertig0ne/middy-test/test:latest
+    - name: Push the Docker image
+      run: docker push docker.pkg.github.com/vertig0ne/middy-test/test:latest
+
