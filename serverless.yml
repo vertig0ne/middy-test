@@ -40,6 +40,7 @@ plugins:
 functions:
   - ${file(./handlers/hello/serverless.yml)}
   - ${file(./handlers/dbhello/serverless.yml)}
+  - ${file(./handlers/postdbhello/serverless.yml)}
 
 custom:
   serverless-offline:
