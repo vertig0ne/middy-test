@@ -1,0 +1,32 @@
+version: "3.8"
+networks:
+  dev:
+volumes:
+  mysqldb:
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: backend
+    hostname: backend
+    restart: unless-stopped
+    networks:
+      - dev
+    ports:
+      - 3000:3000
+      - 3002:3002
+  mariadb:
+    image: mariadb:latest
+    container_name: mysql
+    hostname: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    volumes:
+      - mysqldb:/var/lib/mysql
+    networks:
+      - dev

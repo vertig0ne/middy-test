@@ -1,0 +1,22 @@
+{
+  "name": "middy-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/serverless/bin/serverless.js offline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@middy/core": "^1.4.0",
+    "@middy/http-error-handler": "^1.4.0",
+    "@middy/http-json-body-parser": "^1.4.0",
+    "@mysql/xdevapi": "8.0.22",
+    "serverless": "^2.8.0"
+  },
+  "devDependencies": {
+    "serverless-offline": "^6.8.0"
+  }
+}

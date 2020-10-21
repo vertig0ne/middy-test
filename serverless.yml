@@ -1,0 +1,49 @@
+service: middytest
+# app and org for use with dashboard.serverless.com
+app: test-app
+org: srvless
+configValidationMode: error
+
+frameworkVersion: '2'
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: eu-west-2
+
+#  iamRoleStatements:
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:ListBucket"
+#      Resource: { "Fn::Join" : ["", ["arn:aws:s3:::", { "Ref" : "ServerlessDeploymentBucket" } ] ]  }
+#    - Effect: "Allow"
+#      Action:
+#        - "s3:PutObject"
+#      Resource:
+#        Fn::Join:
+#          - ""
+#          - - "arn:aws:s3:::"
+#            - "Ref" : "ServerlessDeploymentBucket"
+#            - "/*"
+
+#  environment:
+#    variable1: value1
+
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+plugins:
+  - serverless-offline
+
+functions:
+  - ${file(./handlers/hello/serverless.yml)}
+
+custom:
+  serverless-offline:
+    host: 0.0.0.0
+    httpPort: 3000
