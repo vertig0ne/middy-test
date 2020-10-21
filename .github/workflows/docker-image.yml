@@ -16,6 +16,10 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/vertig0ne/middy-test/test:latest
+    - name: Docker login
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u vertig0ne --password-stdin
     - name: Push the Docker image
       run: docker push docker.pkg.github.com/vertig0ne/middy-test/test:latest
 
