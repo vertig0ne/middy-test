@@ -36,6 +36,7 @@ provider:
 
 plugins:
   - serverless-offline
+  - serverless-bundle
 
 functions:
   - ${file(./handlers/hello/serverless.yml)}

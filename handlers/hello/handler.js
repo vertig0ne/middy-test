@@ -1,7 +1,7 @@
 'use strict';
-const middy = require('@middy/core')
-const httpErrorHandler = require('@middy/http-error-handler')
-const jsonOutput = require('../../middlewares/jsonOutput')
+import middy from '@middy/core'
+import httpErrorHandler from '@middy/http-error-handler'
+import jsonOutput from '../../middlewares/jsonOutput'
 
 const handle = async (event, context, callback) => {
 //  console.log(event, context)

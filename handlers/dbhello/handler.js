@@ -1,7 +1,7 @@
-const mysqlx = require('@mysql/xdevapi');
-const middy = require('@middy/core')
-const httpErrorHandler = require('@middy/http-error-handler')
-const jsonOutput = require('../../middlewares/jsonOutput')
+import mysqlx from '@mysql/xdevapi'
+import middy from '@middy/core'
+import httpErrorHandler from '@middy/http-error-handler'
+import jsonOutput from '../../middlewares/jsonOutput'
 
 const handle = async (event, context, callback) => {
   try {
@@ -21,8 +21,8 @@ const handle = async (event, context, callback) => {
   }
 }
 
-const handler = middy(handle)
+export const handler = middy(handle)
   .use(jsonOutput)
   .use(httpErrorHandler())
 
-module.exports = { handler }
+export default handler
