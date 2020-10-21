@@ -1,7 +1,4 @@
 service: middytest
-# app and org for use with dashboard.serverless.com
-app: test-app
-org: srvless
 configValidationMode: error
 
 frameworkVersion: '2'
@@ -10,6 +7,8 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: eu-west-2
+  environment:
+    MYSQL_URI: 'mysqlx://root:password@mysql/'
 
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -26,8 +25,6 @@ provider:
 #            - "Ref" : "ServerlessDeploymentBucket"
 #            - "/*"
 
-#  environment:
-#    variable1: value1
 
 #package:
 #  include:
@@ -42,6 +39,7 @@ plugins:
 
 functions:
   - ${file(./handlers/hello/serverless.yml)}
+  - ${file(./handlers/dbhello/serverless.yml)}
 
 custom:
   serverless-offline:

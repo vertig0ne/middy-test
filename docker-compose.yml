@@ -2,7 +2,7 @@ version: "3.8"
 networks:
   dev:
 volumes:
-  mysqldb:
+  db:
 services:
   api:
     build:
@@ -16,8 +16,10 @@ services:
     ports:
       - 3000:3000
       - 3002:3002
-  mariadb:
-    image: mariadb:latest
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:latest
     container_name: mysql
     hostname: mysql
     restart: unless-stopped
@@ -27,6 +29,6 @@ services:
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
     volumes:
-      - mysqldb:/var/lib/mysql
+      - db:/var/lib/mysql
     networks:
       - dev
