@@ -18,7 +18,7 @@ jobs:
       run: docker build . --file Dockerfile --tag ghcr.io/vertig0ne/middy-test:latest
     - name: Docker login
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: echo ${GITHUB_TOKEN} | docker login ghcr.io -u vertig0ne --password-stdin
+        GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+      run: echo ${GHCR_TOKEN} | docker login ghcr.io -u vertig0ne --password-stdin
     - name: Push the Docker image
       run: docker push ghcr.io/vertig0ne/middy-test:latest
