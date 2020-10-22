@@ -108,3 +108,6 @@ dist
 
 # Serverless directories
 .serverless
+
+# Webpack directories
+.Webpack

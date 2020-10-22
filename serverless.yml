@@ -8,7 +8,11 @@ provider:
   stage: dev
   region: eu-west-2
   environment:
-    MYSQL_URI: 'mysqlx://root:password@mysql/'
+    DB_HOST: mysql
+    DB_PORT: 3306
+    DB_USER: root
+    DB_PASS: password
+    DB_SCHEMA: middytest
 
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -35,8 +39,9 @@ provider:
 #    - exclude-me-dir/**
 
 plugins:
-  - serverless-offline
   - serverless-bundle
+  - serverless-jest-plugin
+  - serverless-offline
 
 functions:
   - ${file(./handlers/hello/serverless.yml)}

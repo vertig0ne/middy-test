@@ -11,13 +11,17 @@
   "license": "ISC",
   "dependencies": {
     "@middy/core": "^1.4.0",
+    "@middy/db-manager": "^1.4.0",
     "@middy/http-error-handler": "^1.4.0",
     "@middy/http-json-body-parser": "^1.4.0",
-    "@mysql/xdevapi": "8.0.22",
+    "bookshelf": "^1.2.0",
+    "knex": "^0.21.6",
+    "mysql": "^2.18.1",
     "serverless": "^2.8.0"
   },
   "devDependencies": {
     "serverless-bundle": "^3.2.1",
+    "serverless-jest-plugin": "^0.3.0",
     "serverless-offline": "^6.8.0"
   }
 }
