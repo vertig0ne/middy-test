@@ -1,9 +1,8 @@
-'use strict';
 import middy from '@middy/core'
 import httpErrorHandler from '@middy/http-error-handler'
 import jsonOutput from '../../middlewares/jsonOutput'
 
-const handle = async (event, context, callback) => {
+export const handle = async (event, context, callback) => {
 //  console.log(event, context)
   return {
     statusCode: 200,
@@ -13,8 +12,8 @@ const handle = async (event, context, callback) => {
   };
 }
 
-const handler = middy(handle)
+export const handler = middy(handle)
   .use(jsonOutput)
   .use(httpErrorHandler())
 
-module.exports = { handler }
+export default handler
